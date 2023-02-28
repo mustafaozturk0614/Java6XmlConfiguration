@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--       application proporites den veri çekmek için kullandığımız tag   ////////////-->
+    <context:property-placeholder location="application.properties"></context:property-placeholder>
+    <!-- bean definitions here -->
+    <bean id="mydatabase" class="com.bilgeadam.Java6Xmlconfiguraiton.xml.databseornek.Mysql">
+<!--        kendi elimizle değer girdiğimiz örnek  ////////////-->
+<!--        <property name="url" value="jdbc:mysql..."></property>-->
+<!--        <property name="username" value="mysqladmin"></property>-->
+
+        <!--       application proporites den çektiğimiz değerler   ////////////-->
+        <property name="url" value="${mysqlurl}"></property>
+        <property name="username" value="${mysqlusername}"></property>
+
+    </bean>
+
+    <bean id="service" class="com.bilgeadam.Java6Xmlconfiguraiton.xml.databseornek.DatabaseService" >
+        <constructor-arg ref="mydatabase" ></constructor-arg>
+    </bean>
+
+</beans>
