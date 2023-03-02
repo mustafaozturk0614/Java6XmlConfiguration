@@ -1,11 +1,10 @@
-package com.bilgeadam.Java6Xmlconfiguraiton.annotation;
+package com.bilgeadam.Java6Xmlconfiguraiton.ioc;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
-public class SuperContra implements IGameConsole {
+
+public class SuperContraIoc implements IGameConsoleIoc {
 
     @Override
     public void up() {
